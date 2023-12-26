@@ -1,0 +1,27 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: 'olama-serve-dev'
+    ports:
+      - "11434:11434"
+    volumes:
+      - ../ollama:/root/.ollama
+    networks:
+      - net
+
+  app:
+    build:
+      context: ../
+      target: devcontainer
+    container_name: 'ollama-app-dev'
+    ports:
+      - "8501:8501"
+    volumes:
+      - ../:/ollama-app
+    command: sleep infinity
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge

@@ -1,0 +1,24 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: 'olama-serve'
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama:/root/.ollama
+    networks:
+      - net
+
+  app:
+    build:
+      context: .
+      target: app
+    container_name: 'ollama-app'
+    ports:
+      - "8501:8501"
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge

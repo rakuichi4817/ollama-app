@@ -1,0 +1,23 @@
+{
+	"name": "ollama-app",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/ollama-app",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"MS-CEINTL.vscode-language-pack-ja",
+				"ms-python.python",
+				"ms-python.black-formatter",
+				"ms-python.flake8",
+				"ms-python.isort",
+				"njpwerner.autodocstring",
+				"ionutvmi.path-autocomplete",
+				"mhutchie.git-graph",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
+	"postCreateCommand": "pipenv sync --dev",
+	"initializeCommand": "cd"
+}
